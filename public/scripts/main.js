@@ -3,9 +3,9 @@
  * Provides the JavaScript interactions for all pages.
  *
  * @author 
- * Christian Beadling and Matthew McClenahan
+ * Christian Beadling and Matthew McClenahan 
  */
-
+// Comment test
 var rhit = rhit || {};
 
 function htmlToElement(html) {
