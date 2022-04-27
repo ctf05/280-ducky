@@ -15,7 +15,7 @@ function htmlToElement(html) {
 	return template.content.firstChild;
 }
 
-rhit.MovieQuote = class {
+rhit.Text = class {
 	constructor(id, text) {
 		this.id = id;
 		this.text = text;
@@ -30,7 +30,7 @@ rhit.DuckyPageController = class {
 
 }
 
-
+//-------------------------------------------------------------------------------------
 
 rhit.FbAuthManager = class {
 	constructor() {
@@ -43,7 +43,7 @@ rhit.FbAuthManager = class {
 		});
 	}
 	signIn() {
-		Rosefire.signIn("8e84034b-cfa4-4084-9e49-db5c5282b24b", (err, rfUser) => {
+		Rosefire.signIn("Token", (err, rfUser) => {        //fix
 			if (err) {
 				console.log("Rosefire error!", err);
 				return;
@@ -84,7 +84,7 @@ rhit.LoginPageController = class {
 rhit.checkForRedirects = function () {
 	// Redirects
 	if (document.querySelector("#loginPage") && rhit.fbAuthManager.isSignedIn) {
-		window.location.href = "/list.html";
+		window.location.href = "/nextPage";             //fix
 	}
 	if (!document.querySelector("#loginPage") && !rhit.fbAuthManager.isSignedIn) {
 		window.location.href = "/";
@@ -94,6 +94,8 @@ rhit.checkForRedirects = function () {
 rhit.initializePage = function () {
 
 }
+
+//-------------------------------------------------------------------------------------
 
 rhit.main = function () {
 	console.log("Ready");
