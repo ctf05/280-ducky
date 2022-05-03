@@ -3,8 +3,11 @@ body {
 }
 
 .navbar {
-    background-color: #800000;
-    color: white;
+    background-color: #FFD800;
+}
+
+.navbar-brand {
+    color: black;
 }
 
 .page-container {
@@ -20,3 +23,14 @@ body {
     padding: 10px 30px;
     border-radius: 5px;
   }
+
+#tag {
+    display: table;
+    text-align: center;
+    margin: 60px auto;
+    color: black;
+    background: #FFD800;
+    font-size: 1.5em;
+    padding: 8px 20px;
+    border-radius: 15px;
+}
