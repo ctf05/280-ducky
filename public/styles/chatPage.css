@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Righteous&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+.page-container {
+    margin-top: 75px;
+}
+
+.navbar{
+    background-color: black;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+body {
+    background-color: #FFD800;
+    background-size: 400% 400%;
+}
+
+.list-group {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 0.5rem 0;
+    background-color: rgb(68, 68, 68);
+}
+
+.bmd-layout-drawer>.list-group .list-group-item {
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: azure;
+}
+
+
+.list-group-item :first-child {
+    margin-right: 0.75rem;
+}
+
+.bmd-layout-drawer {
+    background-color: #bdc3c7;
+    z-index: 999;
+}
+
+
+
+.tableLimiter {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.wrap-table100 {
+    width: 1170px
+}
+
+table {
+    border-spacing: 1;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    position: relative
+}
+
+
+table td,
+table th {
+    padding-left: 8px
+}
+
+table thead tr {
+    height: 60px;
+    background: #000428
+}
+
+.table100-head th {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.2;
+    font-weight: unset
+}
+
+.column1 {
+    width: 260px;
+    padding-left: 50px;
+}
+
+.column2 {
+    width: 300px;
+    padding-left: 50px;
+}
+
+.column3 {
+    width: 105px
+}
+
+.column4 {
+    width: 110px;
+    text-align: center;
+}
+
+.column5 {
+    width: 222px;
+    text-align: center;
+}
+
+.bmd-btn-fab.custom-file-control:before, .btn.bmd-btn-fab {
+    width: 3.5rem;
+    min-width: 3.5rem;
+    height: 3.5rem;
+    box-shadow: 0 1px 1.5px 0 rgb(0 0 0 / 12%), 0 1px 1px 0 rgb(0 0 0 / 26%);
+    background-color: #000428;
+}
+
+.material-icons {
+    color: white;
+
+}
+
+
+@media screen and (min-width:1200px) {
+    .tableLimiter{
+        padding: 0px 152;
+    }
+}
+@media screen and (min-width:1309px) {
+    .tableLimiter{
+        padding: 0px;
+    }
+}
+
+@media screen and (min-width:993px) {
+    #fab {
+        color: white;
+        position: fixed;
+        background: #000428;
+        top: 75px;
+        z-index: 998;
+        left: 70px;
+    }
+    .tableLimiter{
+        padding: 0px 95px;
+    }
+}
