@@ -81,6 +81,14 @@ rhit.LoginPageController = class {
 	}
 }
 
+rhit.ManagerPageController = class {
+	constructor() {
+		document.querySelector("#signOutButton").onclick = (event) => {
+			rhit.fbAuthManager.signOut();
+		};
+	}
+}
+
 rhit.checkForRedirects = function () {
 	// Redirects
 	if (document.querySelector("#loginPage") && rhit.fbAuthManager.isSignedIn) {
@@ -94,7 +102,10 @@ rhit.checkForRedirects = function () {
 rhit.initializePage = function () {
 	if (document.querySelector("#loginPage")) {
 		new rhit.LoginPageController();
-	  }
+	}
+	if (document.querySelector("#managerPage")) {
+		new rhit.ManagerPageController();
+	}
 }
 
 //-------------------------------------------------------------------------------------
