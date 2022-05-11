@@ -80,7 +80,7 @@ rhit.LoginPageController = class {
 		};
 	}
 }
-
+ 
 rhit.checkForRedirects = function () {
 	// Redirects
 	if (document.querySelector("#loginPage") && rhit.fbAuthManager.isSignedIn) {
@@ -88,7 +88,7 @@ rhit.checkForRedirects = function () {
 	}
 	if (!document.querySelector("#loginPage") && !rhit.fbAuthManager.isSignedIn) {
 		window.location.href = "/";
-	}
+	} 
 }
 
 rhit.initializePage = function () {
