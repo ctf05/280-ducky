@@ -154,6 +154,18 @@ rhit.ManagerPageController = class {
 		document.querySelector("#signOutButton").onclick = (event) => {
 			rhit.fbAuthManager.signOut();
 		};
+		document.querySelector("#blue").onclick = (event) => {
+			document.getElementById("persDropdown").innerHTML = "blue";
+		};
+		document.querySelector("#red").onclick = (event) => {
+			document.getElementById("persDropdown").innerHTML = "red";
+		};
+		document.querySelector("#yellow").onclick = (event) => {
+			document.getElementById("persDropdown").innerHTML = "yellow";
+		};
+		document.querySelector("#green").onclick = (event) => {
+			document.getElementById("persDropdown").innerHTML = "green";
+		};
 		document.querySelector("#submitAddDucky").onclick = (event) => {
 			const name = document.querySelector("#inputName").value;
 			const color = document.querySelector("#colorDropdown").innerHTML.toLowerCase();
@@ -257,12 +269,12 @@ rhit.UserDuckyManager = class {
 	}
 	add(name, color, chat) {
 		this._ref.add({
-				[rhit.FB_KEY_AUTHOR]: rhit.fbAuthManager.uid,
-				[rhit.FB_KEY_DUCKYNAME]: name,
-				[rhit.FB_KEY_COLOR]: color,
-				[rhit.FB_KEY_CHAT]: chat,
-				[rhit.FB_KEY_LAST_TOUCHED]: firebase.firestore.Timestamp.now(),
-			})
+			[rhit.FB_KEY_AUTHOR]: rhit.fbAuthManager.uid,
+			[rhit.FB_KEY_DUCKYNAME]: name,
+			[rhit.FB_KEY_COLOR]: color,
+			[rhit.FB_KEY_CHAT]: chat,
+			[rhit.FB_KEY_LAST_TOUCHED]: firebase.firestore.Timestamp.now(),
+		})
 			.then((docRef) => {
 				console.log("Document written with ID: ", docRef.id);
 			})
@@ -315,7 +327,7 @@ rhit.FbAuthManager = class {
 		});
 	}
 	signIn() {
-		Rosefire.signIn("fb2a6a0c-f24a-4fbd-ad0c-b2e095ca2be9", (err, rfUser) => {       
+		Rosefire.signIn("fb2a6a0c-f24a-4fbd-ad0c-b2e095ca2be9", (err, rfUser) => {
 			if (err) {
 				console.log("Rosefire error!", err);
 				return;
@@ -352,7 +364,7 @@ rhit.LoginPageController = class {
 		};
 	}
 }
- 
+
 rhit.checkForRedirects = function () {
 	// Redirects
 	if (document.querySelector("#loginPage") && rhit.fbAuthManager.isSignedIn) {
@@ -360,7 +372,7 @@ rhit.checkForRedirects = function () {
 	}
 	if (!document.querySelector("#loginPage") && !rhit.fbAuthManager.isSignedIn) {
 		window.location.href = "/";
-	} 
+	}
 }
 
 //Christian's Version
@@ -416,15 +428,15 @@ rhit.main = function () {
 	var uiConfig = {
 		signInSuccessUrl: "/list.html",
 		signInOptions: [
-		  // Leave the lines as is for the providers you want to offer your users.
-		  firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-		  firebase.auth.EmailAuthProvider.PROVIDER_ID,
-		  firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-		  firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID,
+			// Leave the lines as is for the providers you want to offer your users.
+			firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+			firebase.auth.EmailAuthProvider.PROVIDER_ID,
+			firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+			firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID,
 		],
-	  };
-	  const ui = new firebaseui.auth.AuthUI(firebase.auth());
-	  ui.start("#firebaseui-auth-container", uiConfig);
+	};
+	const ui = new firebaseui.auth.AuthUI(firebase.auth());
+	ui.start("#firebaseui-auth-container", uiConfig);
 };
 
 rhit.main();
