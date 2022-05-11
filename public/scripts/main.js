@@ -43,7 +43,7 @@ rhit.FbAuthManager = class {
 		});
 	}
 	signIn() {
-		Rosefire.signIn("Token", (err, rfUser) => {        //fix
+		Rosefire.signIn("fb2a6a0c-f24a-4fbd-ad0c-b2e095ca2be9", (err, rfUser) => {       
 			if (err) {
 				console.log("Rosefire error!", err);
 				return;
@@ -84,7 +84,7 @@ rhit.LoginPageController = class {
 rhit.checkForRedirects = function () {
 	// Redirects
 	if (document.querySelector("#loginPage") && rhit.fbAuthManager.isSignedIn) {
-		window.location.href = "/nextPage";             //fix
+		window.location.href = "/managerPage.html";             //fix
 	}
 	if (!document.querySelector("#loginPage") && !rhit.fbAuthManager.isSignedIn) {
 		window.location.href = "/";
@@ -92,7 +92,12 @@ rhit.checkForRedirects = function () {
 }
 
 rhit.initializePage = function () {
-
+	if (document.querySelector("#loginPage")) {
+		new rhit.LoginPageController();
+	}
+	if (document.querySelector("#managerPage")) {
+		new rhit.ManagerPageController();
+	}
 }
 
 //-------------------------------------------------------------------------------------
