@@ -215,7 +215,7 @@ rhit.ManagerPageController = class {
 			const newRow = this._createEntry(ducky);
 
 			newRow.querySelector(".loadBtn").onclick = (event) => {
-				window.location.href = `/default_index.html?index=${i}&uid=${rhit.fbAuthManager.uid}&pers=${ducky.color}&name=${ducky.name}`;
+				window.location.href = `/chatPage.html?index=${i}&uid=${rhit.fbAuthManager.uid}&color=${ducky.color}&name=${ducky.name}`;
 			};
 			newRow.querySelector(".delBtn").onclick = (event) => {
 				firebase.firestore().collection(rhit.FB_COLLECTION_DUCKYS).doc(ducky.id).delete();
