@@ -94,10 +94,19 @@ rhit.ChatPageController = class {
 		};
 
 		let duckyText = document.querySelector(".duckyText").innerHTML;
-		console.log(duckyText);
 
-		rhit.duckyManager.beginListening(this.loadChat.bind(this));
+		// document.querySelector("#duckyImage").src="images/duckBlue.png";
+
+		// Change Picture function (not working right now, ducky.color is out of scope)
+		document.querySelector("#duckyImage").src=`images/duck${ducky.color}.png`;
+
+		
+
+
+		// rhit.duckyManager.beginListening(this.loadChat.bind(this));
 	}
+
+
 
 }
 
@@ -432,11 +441,11 @@ rhit.main = function () {
 			firebase.auth.GoogleAuthProvider.PROVIDER_ID,
 			firebase.auth.EmailAuthProvider.PROVIDER_ID,
 			firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-			firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID,
+			// firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID,
 		],
 	};
-	const ui = new firebaseui.auth.AuthUI(firebase.auth());
-	ui.start("#firebaseui-auth-container", uiConfig);
+	// const ui = new firebaseui.auth.AuthUI(firebase.auth());
+	// ui.start("#firebaseui-auth-container", uiConfig);
 };
 
 rhit.main();
