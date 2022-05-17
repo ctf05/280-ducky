@@ -14,6 +14,7 @@ body {
 .row {
     align-items: center;
     padding: 0px, 33px;
+    display: grid;
 }
 
 .navbar{

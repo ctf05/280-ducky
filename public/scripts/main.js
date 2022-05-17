@@ -86,6 +86,8 @@ rhit.DuckyPageController = class {
 
 rhit.ChatPageController = class {
 	constructor() {
+		rhit.duckyManager.setSnapshotsandDucky();
+
 		document.querySelector("#signOutButton").onclick = (event) => {
 			rhit.fbAuthManager.signOut();
 		};
@@ -98,7 +100,6 @@ rhit.ChatPageController = class {
 		// document.querySelector("#duckyImage").src="images/duckBlue.png";
 
 		// Change Picture function (not working right now, ducky.color is out of scope)
-		document.querySelector("#duckyImage").src=`images/duck${ducky.color}.png`;
 
 		
 
@@ -210,8 +211,8 @@ rhit.ManagerPageController = class {
 		<td class="column1">${ducky.name}</td>
 		<td class="column2">"TODO: ADD PORTRAIT"</td>
 		<td class="column3">${ducky.color}</td>
-		<td class="column4"><button type="button" class="btn loadBtn"><i class="material-icons">play_arrow</i></button></td>
-		<td class="column5"><button type="button" class="btn delBtn"><i class="material-icons">delete</i></button></td>
+		<td class="column4"><button style="background-color: #FFD800" type="button" class="btn loadBtn"><i style="color: black" class="material-icons">play_arrow</i></button></td>
+		<td class="column5 delBtn"><button style="background-color: #FFD800" type="button" class="btn delBtn"><i style="color: black" class="material-icons">delete</i></button></td>
 	</tr>`)
 	}
 
@@ -303,6 +304,25 @@ rhit.UserDuckyManager = class {
 			}
 		});
 	}
+
+	setSnapshotsandDucky() {
+		let query = this._ref.orderBy(rhit.FB_KEY_LAST_TOUCHED, "desc").limit(50);
+		if (this._uid) {
+			query = query.where(rhit.FB_KEY_AUTHOR, "==", this._uid);
+		}
+		query
+		.get()
+		.then((querySnapshot) => {
+			this._documentSnapshots = querySnapshot.docs;
+			const queryString = window.location.search;
+			const urlParams = new URLSearchParams(queryString);
+			const index = urlParams.get('index');
+			const ducky = rhit.duckyManager.getDuckyAtIndex(0); //only one decument is returned into docSnapshots so the index is 0
+			document.querySelector("#duckyImage").src=`images/duck${ducky.color}.png`;
+			console.log("Object path:" + `images/duck${ducky.color}.png`);
+		})
+	}
+
 	stopListening() {
 		this._unsubscribe();
 	}
@@ -312,7 +332,7 @@ rhit.UserDuckyManager = class {
 	getDuckySnapshot(index) {
 		return this._documentSnapshots[index];
 	}
-	getDuckyAtIndex(index) {
+	getDuckyAtIndex(index) { 
 		const docSnapshot = this._documentSnapshots[index];
 		const ducky = new rhit.Ducky(
 			docSnapshot.id,
@@ -418,6 +438,9 @@ rhit.initializePage = function () {
 		new rhit.ManagerPageController();
 	}
 	if (document.querySelector("#chatPage")) {
+		var urlParams = new URLSearchParams(window.location.search);
+		const uid = urlParams.get("uid");
+		rhit.duckyManager = new rhit.UserDuckyManager(uid);
 		new rhit.ChatPageController();
 	}
 }
