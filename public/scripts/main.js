@@ -303,7 +303,7 @@ rhit.UserDuckyManager = class {
 				changeListener();
 			}
 		});
-	} 
+	}  
 
 	setSnapshotsandDucky() {
 		let query = this._ref.orderBy(rhit.FB_KEY_LAST_TOUCHED, "desc").limit(50);
