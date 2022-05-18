@@ -348,7 +348,7 @@ rhit.UserDuckyManager = class {
 			const queryString = window.location.search;
 			const urlParams = new URLSearchParams(queryString);
 			const index = urlParams.get('index');
-			const ducky = rhit.duckyManager.getDuckyAtIndex(index); //only one decument is returned into docSnapshots so the index is 0
+			const ducky = rhit.duckyManager.getDuckyAtIndex(index);
 			console.log(index + "  " + ducky + "  " + ducky.id + "  " + ducky.color);
 			document.querySelector("#duckyImage").src=`images/duck${ducky.color}.png`;
 			console.log("Object path:" + `images/duck${ducky.color}.png`);

@@ -15,6 +15,7 @@ body {
     align-items: center;
     padding: 0px, 33px;
     display: grid;
+    grid-template-columns: 50% 50%;
 }
 
 .navbar{
@@ -103,6 +104,9 @@ body {
 
 /* Chat bubbles */
 
+#duckyImage {
+    padding-top: 100px;
+}
 
 .duckyText span {
     line-height: 1.5em;
@@ -128,7 +132,7 @@ a:not([href]):not([tabindex]), a:not([href]):not([tabindex]):focus, a:not([href]
     float: left;
     border: none;
     box-sizing: border-box;
-    width: 100%;
+    width: 130%;
     border-radius: 10px;
     padding: 10px;
     font-size: 16px;

@@ -32,6 +32,20 @@ function firstBotMessage(duckyId) {
 
 function getHardResponse(userText) {
     let botResponse = getBotResponse(userText);
+    if (botResponse == "I am eternally trapped, please turn off the webpage and let me slumber in the abyss.") {
+        setTimeout(function(){
+            let duckyHtml = '<p class="botText"><span>' + "It hurts." + '</span></p>';
+            $("#chatbox").append(duckyHtml);
+        
+            document.getElementById("chat-bar-bottom").scrollIntoView(true);
+            setTimeout(function(){
+                let duckyHtml = '<p class="botText"><span>' + "Please." + '</span></p>';
+                $("#chatbox").append(duckyHtml);
+            
+                document.getElementById("chat-bar-bottom").scrollIntoView(true);
+            }, 4000);
+        }, 5000);
+    }
     let duckyHtml = '<p class="botText"><span>' + botResponse + '</span></p>';
     $("#chatbox").append(duckyHtml);
 
