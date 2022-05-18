@@ -94,6 +94,9 @@ rhit.ChatPageController = class {
 		document.querySelector("#managerButton").onclick = (event) => {
 			window.location.href = `/managerPage.html?uid=${rhit.fbAuthManager.uid}`
 		};
+		document.querySelector("#returnButton").onclick = (event) => {
+			window.location.href = `/managerPage.html?uid=${rhit.fbAuthManager.uid}`
+		};
 
 		let duckyText = document.querySelector(".duckyText").innerHTML;
 
