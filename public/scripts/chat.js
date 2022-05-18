@@ -56,28 +56,6 @@ function getResponse(duckyId) {
         getHardResponse(userText);
     }, 1000)
 
-    
-
-
-
-    // if (userText != "") {
-    //     firebase.firestore().collection(rhit.FB_COLLECTION_CHATBOTS).doc(botId).update({
-    //         chatlog: firebase.firestore.FieldValue.arrayUnion(userText)
-    //     });
-
-    //     let userHtml = '<p class="userText"><span>' + userText + '</span></p>';
-
-    //     $("#textInput").val("");
-    //     $("#chatbox").append(userHtml);
-    //     document.getElementById("chat-bar-bottom").scrollIntoView(true);
-
-    //     setTimeout(() => {
-    //         var urlParams = new URLSearchParams(window.location.search);
-    //         var context = urlParams.get("pers");
-    //         console.log("context is: " + context);
-    //         openAi(userText, context, botId);
-    //     }, 1000)
-    // }
 }
 
 function sendButton() {
