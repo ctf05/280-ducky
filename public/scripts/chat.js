@@ -43,8 +43,8 @@ function getHardResponse(userText) {
                 $("#chatbox").append(duckyHtml);
             
                 document.getElementById("chat-bar-bottom").scrollIntoView(true);
-            }, 4000);
-        }, 5000);
+            }, 3000);
+        }, 4000);
     }
     let duckyHtml = '<p class="botText"><span>' + botResponse + '</span></p>';
     $("#chatbox").append(duckyHtml);
