@@ -98,7 +98,7 @@ rhit.ChatPageController = class {
 			window.location.href = `/managerPage.html?uid=${rhit.fbAuthManager.uid}`
 		};
 
-		let duckyText = document.querySelector(".duckyText").innerHTML;
+		// let duckyText = document.querySelector(".duckyText").innerHTML;
 
 		// document.querySelector("#duckyImage").src="images/duckBlue.png";
 
@@ -108,12 +108,40 @@ rhit.ChatPageController = class {
 
 
 		// rhit.duckyManager.beginListening(this.loadChat.bind(this));
+		
+
+		
+	}
+	loadChat() {
+		var urlParams = new URLSearchParams(window.location.search);
+		const doc = rhit.duckyManager.getDuckySnapshot(urlParams.get("index"));
+		rhit.FB_KEY_CHAT = doc.get("chat");
+
+		document.querySelector(".collapsible").innerHTML = urlParams.get("name");
+
+		if (rhit.FB_KEY_CHATLOG.length == 0) {
+			firstDuckyMessage(doc.id);
+		} else if (!document.getElementById('duckyFirstMessage').style.display) {
+			document.getElementById('duckyFirstMessage').style.display = 'none';
+			let time = getTime();
+			$("#chat-timestamp").append(time);
+			document.getElementById("userInput").scrollIntoView(false);
+			console.log(rhit.FB_KEY_CHAT);
+			loadDuckyChat(rhit.FB_KEY_CHAT);
+			
+		}
+
+		$("#textInput").keypress(function (e) {
+			if (e.which == 13) {
+				getResponse(doc.id);
+			}
+		});
+
 	}
 
 
 
 }
-
 // Christians Version
 // rhit.ManagerPageController = class {
 

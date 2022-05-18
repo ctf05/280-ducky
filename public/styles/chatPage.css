@@ -23,7 +23,7 @@ body {
 
 .chat-bar-collapsible {
     /* position: static; */
-    text-align: center;
+    /* text-align: center; */
     display: flex;
     width: 300px;
     margin: 0px auto;
@@ -48,11 +48,12 @@ body {
 .full-chat-block {
     width: 450px;
     background: rgb(80, 80, 80);
-    text-align: center;
+    /* text-align: center; */
     overflow: auto;
     scrollbar-width: none;
     height: max-content;
     transition: max-height 0.2s ease-out;
+    margin-top: 4em;
 }
 
 .outer-container {
@@ -102,6 +103,18 @@ body {
 
 /* Chat bubbles */
 
+
+.duckyText span {
+    line-height: 1.5em;
+    display: inline-block;
+    background: #e0e0e0;
+    padding: 10px;
+    border-radius: 8px;
+    border-bottom-left-radius: 2px;
+    max-width: 80%;
+    margin-left: 10px;
+    animation: floatup .5s forwards;
+}
 #userInput {
     width: 75%;
 }
