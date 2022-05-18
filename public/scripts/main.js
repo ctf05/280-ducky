@@ -209,7 +209,7 @@ rhit.ManagerPageController = class {
 		console.log("Ducky ID: " + ducky.id);
 		return htmlToElement(`<tr id=${ducky.id}>
 		<td class="column1">${ducky.name}</td>
-		<td class="column2">"TODO: ADD PORTRAIT"</td>
+		<td class="column2"><img id="duckyImage" src="images/duck${ducky.color}.png" style="max-width: 50px; padding-top: 8px;" /></td>
 		<td class="column3">${ducky.color}</td>
 		<td class="column4"><button style="background-color: #FFD800" type="button" class="btn loadBtn"><i style="color: black" class="material-icons">play_arrow</i></button></td>
 		<td class="column5 delBtn"><button style="background-color: #FFD800" type="button" class="btn delBtn"><i style="color: black" class="material-icons">delete</i></button></td>
